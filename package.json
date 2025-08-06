@@ -1,0 +1,24 @@
+{
+  "name": "playwright-js-framework",
+  "version": "1.0.0",
+  "description": "A robust Playwright automation framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:chrome": "npx playwright test --project=chromium",
+    "test:report": "npx playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "allure-playwright": "^3.3.0",
+    "dotenv": "^16.4.5"
+  }
+}
