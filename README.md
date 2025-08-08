@@ -1,9 +1,10 @@
 
 npm install
 npm install -D @playwright/test allure-playwright
-npx playwright test --project=chromium --headed
+ENVIRONMENT=DEV npx playwright test --grep @dev --project=chromium --headed 
 npx allure generate ./allure-results --clean -o ./allure-report
 npx allure open ./allure-report
+
 
 
 
