@@ -1,12 +1,10 @@
 {
-  "name": "playwright-js-framework",
+  "name": "Nuxeo-Test-Automation",
   "version": "1.0.0",
-  "description": "A robust Playwright automation framework",
+  "description": "A robust Nuxeo automation framework",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
-    "test:headed": "npx playwright test --headed",
-    "test:chrome": "npx playwright test --project=chromium",
+    "test": "ENVIRONMENT=TEST npx playwright test --grep @test --project=chromium --headed",
     "test:report": "npx playwright show-report"
   },
   "keywords": [
@@ -14,7 +12,7 @@
     "automation",
     "testing"
   ],
-  "author": "",
+  "author": "Shiva Poosa",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.53.1",

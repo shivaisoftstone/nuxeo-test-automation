@@ -18,19 +18,21 @@ module.exports = defineConfig({
     ['html'],
     ['allure-playwright']
   ],
+  timeout : 100000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.ENV === 'qa'
-      ? process.env.QA_BASE_URL
-      : process.env.ENV === 'prod'
-      ? process.env.PROD_BASE_URL
+    baseURL: process.env.ENV === 'TEST'
+      ? process.env.TEST_BASE_URL
+      : process.env.ENV === 'INT'
+      ? process.env.INT_BASE_URL
       : process.env.DEV_BASE_URL,
 
     
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure', 
   },
 
   /* Configure projects for major browsers */
