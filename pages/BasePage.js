@@ -1,4 +1,7 @@
 // pages/BasePage.js
+const fs = require('fs');
+const path = require('path');
+
 class BasePage {
   /**
    * @param {import('@playwright/test').Page} page
@@ -14,6 +17,21 @@ class BasePage {
   async navigate(path) {
     await this.page.goto(path);
   }
+
+  async setCookiesFromFile(userType ) {
+
+    let cookiesPath;
+    if(userType=='admin'){
+      cookiesPath = path.resolve(__dirname, `../.auth/${process.env.ENVIRONMENT}/adminLogin.json`);
+    }
+    else{
+      cookiesPath = path.resolve(__dirname, `../.auth/${process.env.ENVIRONMENT}/ampLogin.json`);
+    }
+    
+    const storage = JSON.parse(fs.readFileSync(cookiesPath, 'utf-8'));
+    await this.page.context().addCookies(storage.cookies);
+  }
+
 }
 
 module.exports = BasePage;

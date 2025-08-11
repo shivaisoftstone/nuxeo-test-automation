@@ -1,5 +1,6 @@
 #Software installation
 Install node, Jre (for seeing sllure results)
+
 #Checkout the project
 Git repo: https://github.com/shivaisoftstone/nuxeo-test-automation.git
 Branch: main
@@ -8,6 +9,9 @@ Branch: main
 npm install
 npm install -D @playwright/test allure-playwright
 npx playwright install
+
+#copy .env file
+This file contains passwords. So, copy this file manually to root folder for security reasons.
 
 #Run tests with tag and environment
 ENVIRONMENT=TEST npx playwright test --grep @test --project=chromium --headed 

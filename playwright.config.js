@@ -18,7 +18,7 @@ module.exports = defineConfig({
     ['html'],
     ['allure-playwright']
   ],
-  timeout : 100000,
+  timeout : 20000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -33,6 +33,7 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure', 
+    javaScriptEnabled: true,
   },
 
   /* Configure projects for major browsers */

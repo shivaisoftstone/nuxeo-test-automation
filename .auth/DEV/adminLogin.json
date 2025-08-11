@@ -1,0 +1,53 @@
+{
+  "cookies": [
+    {
+      "name": "JSESSIONID",
+      "value": "FD49249C640A6D283AE6AA74B32885AD.nuxeo",
+      "domain": "psdassets-dev.churchofjesuschrist.org",
+      "path": "/nuxeo",
+      "expires": 1753283046.925458,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "nuxeo.start.url.fragment",
+      "value": "!%2Fhome",
+      "domain": "psdassets-dev.churchofjesuschrist.org",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "org.jboss.seam.core.TimeZone",
+      "value": "Asia/Kolkata",
+      "domain": "psdassets-dev.churchofjesuschrist.org",
+      "path": "/",
+      "expires": 1784732646,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://psdassets-dev.churchofjesuschrist.org",
+      "localStorage": [
+        {
+          "name": "asperaCreateTransferPreferences",
+          "value": "{\"hideMessage\":false,\"autoComplete\":false}"
+        },
+        {
+          "name": "e2e-admin-default-lds-nuxeo-clipboard",
+          "value": "[]"
+        },
+        {
+          "name": "asperaAutoRefreshTransfersPreferences",
+          "value": "{\"autoRefresh\":false}"
+        }
+      ]
+    }
+  ]
+}
