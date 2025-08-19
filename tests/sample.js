@@ -6,7 +6,7 @@ const SamplePage = require('../pages/SamplePage');
 
 
 
-test.describe('Log into Nuxeo page', () => {
+test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
   test.describe.configure({ mode: 'serial' });
   let loginPage;
   let dashboardPage;
@@ -34,7 +34,7 @@ test.describe('Log into Nuxeo page', () => {
     }
   });
 
-  test('Login with user credentials', { tag: ['@dev', '@test'] }, async () => {
+  test('Login with user credentials', async () => {
 
     //your test here
     await SamplePage.someMethod();

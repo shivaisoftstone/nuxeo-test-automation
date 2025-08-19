@@ -2,7 +2,7 @@ const { page, test, expect, BrowserContext, allure } = require('@playwright/test
 const LoginPage = require('../pages/LoginPage');
 
 
-test.describe('Log into Nuxeo page', () => {
+test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
   test.describe.configure({ mode: 'serial' });
   let loginPage;
   let userType = "amp"; // or "amp" based on your requirement
@@ -26,14 +26,14 @@ test.describe('Log into Nuxeo page', () => {
     }
   });
 
-  test('Login with user credentials', { tag: ['@dev', '@test', '@regression'] }, async () => {
+  test('Login with user credentials', async () => {
 
     await loginPage.login(userType);
 
 
   });
 
-  test('click collection', { tag: ['@dev', '@test'] }, async () => {
+  test('click collection', async () => {
 
 
     await page.getByText("COLLECTION").click();
