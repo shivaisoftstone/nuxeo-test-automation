@@ -1,15 +1,10 @@
-const { page, test, expect } = require('@playwright/test');
-
-//importing the page objects
+const { page, test, expect, BrowserContext, allure } = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
-const SamplePage = require('../pages/SamplePage');
-
 
 
 test.describe('Log into Nuxeo page', () => {
   test.describe.configure({ mode: 'serial' });
   let loginPage;
-  let dashboardPage;
   let userType = "amp"; // or "amp" based on your requirement
   let context;
   let page;
@@ -18,7 +13,7 @@ test.describe('Log into Nuxeo page', () => {
     context = await browser.newContext();
     page = await context.newPage();
     loginPage = new LoginPage(page);
-    // const url = process.env[process.env.ENVIRONMENT + "_BASE_URL"]
+    const url = process.env[process.env.ENVIRONMENT + "_BASE_URL"]
     await loginPage.navigate("/nuxeo/catalog");
     await loginPage.setCookiesFromFile(userType);
 
@@ -29,17 +24,23 @@ test.describe('Log into Nuxeo page', () => {
       const screenshot = await page.screenshot();
       allure.attach('Screenshot', screenshot, 'image/png');
     }
-    if (context) {
-      await context.close();
-    }
   });
 
-  test('Login with user credentials', { tag: ['@dev', '@test'] }, async () => {
+  test('Login with user credentials', { tag: ['@dev', '@test', '@regression'] }, async () => {
 
-    //your test here
-    await SamplePage.someMethod();
+    await loginPage.login(userType);
+
 
   });
+
+  test('click collection', { tag: ['@dev', '@test'] }, async () => {
+
+
+    await page.getByText("COLLECTION").click();
+    await page.waitForTimeout(5000);
+  });
+
+
 
 });
 
