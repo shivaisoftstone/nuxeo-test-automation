@@ -4,12 +4,7 @@ const { page, test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
 const SamplePage = require('../pages/SamplePage');
 
-
-
-test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
-  test.describe.configure({ mode: 'serial' });
   let loginPage;
-  let dashboardPage;
   let userType = "amp"; // or "amp" based on your requirement
   let context;
   let page;
@@ -33,6 +28,9 @@ test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
       await context.close();
     }
   });
+
+test.describe('Log into Nuxeo page', { tag: ['@sample'] }, () => {
+
 
   test('Login with user credentials', async () => {
 

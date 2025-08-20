@@ -3,8 +3,6 @@ const LoginPage = require('../pages/LoginPage');
 const DashboardPage = require('../pages/DashboardPage');
 
 
-test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
-  test.describe.configure({ mode: 'serial' });
   let loginPage;
   let dashboardPage;
   let userType = "amp";
@@ -18,6 +16,7 @@ test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
     dashboardPage = new DashboardPage(page);
     await loginPage.navigate("/nuxeo/catalog");
     await loginPage.setCookiesFromFile(userType);
+    await loginPage.login(userType);
 
   });
 
@@ -31,11 +30,13 @@ test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
     }
   });
 
-  test('Login with user credentials', async () => {
-    await loginPage.login(userType);
+test.describe('Add to cart end to end scenario', { tag: ['@dev', '@test'] }, () => {
+  test('Login and navigate to nuxio catalog page', async () => {
+    await loginPage.navigate("/nuxeo/catalog");
+    // await loginPage.login(userType);
   });
 
-  test('Dashboard Visibility', async () => {
+  test('check catalog dashboard page is visible', async () => {
     await dashboardPage.isTheDashboardVisible();
   });
 
@@ -73,5 +74,13 @@ test.describe('Log into Nuxeo page', { tag: ['@dev', '@test'] }, () => {
 
   test('Download', async () => {
     await dashboardPage.download();
+  });
+});
+
+test.describe('Log into Nuxeo page1', { tag: ['@dev', '@test'] }, () => {
+
+  test('Dashboard Visibility1', async () => {
+    await loginPage.navigate("/nuxeo/catalog");
+    await dashboardPage.isTheDashboardVisible();
   });
 });
