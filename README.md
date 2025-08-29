@@ -2,7 +2,7 @@
 Install node, Jre (for seeing sllure results)
 
 #Checkout the project
-Git repo: https://github.com/shivaisoftstone/nuxeo-test-automation.git
+Git repo: https://github.com/ICSEng/nuxeo-global-dam-e2e-new.git
 Branch: main
 
 #Install the dependencies in project root folder
