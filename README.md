@@ -13,13 +13,11 @@ npx playwright install
 #copy .env file
 This file contains passwords. So, copy this file manually to root folder for security reasons.
 
-#Run tests with tag and environment
+#Run tests with tag and environment (run in Bash)
 ENVIRONMENT=TEST npx playwright test --grep @test --project=chromium --headed 
 
 #see the allure reports
-npx allure generate ./allure-results --clean -o ./allure-report
-npx allure open ./allure-report
-
+npm run report
 
 #For generating code (For development only)
 ENVIRONMENT=TEST npx playwright codegen --target=javascript

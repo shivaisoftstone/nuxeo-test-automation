@@ -52,7 +52,7 @@ class LoginPage extends BasePage {
       await this.page.getByRole('textbox', { name: 'Username' }).fill(user);
       await this.page.getByRole('button', { name: 'Next' }).click();
       await this.page.getByRole('textbox', { name: 'Password' }).waitFor({ state: 'visible', timeout: 10000 });
-      await this.page.getByRole('textbox', { name: 'Password' }).click();
+      await this.page.getByRole('textbox', { name: 'Password1' }).click();
       await this.page.getByRole('textbox', { name: 'Password' }).fill(password);
       await this.page.getByRole('button', { name: 'Verify' }).click();
       await this.page.waitForTimeout(10000);

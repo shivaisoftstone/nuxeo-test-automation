@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "ENVIRONMENT=TEST npx playwright test --grep @test --project=chromium --headed",
-    "test:report": "npx playwright show-report"
+    "report": "npx allure generate ./allure-results --clean -o ./allure-report && npx allure open ./allure-report"
   },
   "keywords": [
     "playwright",

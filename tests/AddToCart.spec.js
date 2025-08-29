@@ -23,20 +23,19 @@ const DashboardPage = require('../pages/DashboardPage');
   test.afterAll(async ({ }, testInfo) => {
     if (testInfo.status !== testInfo.expectedStatus) {
       const screenshot = await page.screenshot();
-      allure.attach('Screenshot', screenshot, 'image/png');
+      allure.attachment('Screenshot', screenshot, 'image/png');
     }
     if (context) {
       await context.close();
     }
   });
 
-test.describe('Add to cart end to end scenario', { tag: ['@dev', '@test'] }, () => {
+test.describe('Add to cart end to end scenario', { tag: ['@test'] }, () => {
   test('Login and navigate to nuxio catalog page', async () => {
     await loginPage.navigate("/nuxeo/catalog");
-    // await loginPage.login(userType);
+    await page.waitForTimeout(5000);
   });
-
-  test('check catalog dashboard page is visible', async () => {
+    test('check catalog dashboard Visibility', async () => {
     await dashboardPage.isTheDashboardVisible();
   });
 
@@ -84,3 +83,4 @@ test.describe('Log into Nuxeo page1', { tag: ['@dev', '@test'] }, () => {
     await dashboardPage.isTheDashboardVisible();
   });
 });
+

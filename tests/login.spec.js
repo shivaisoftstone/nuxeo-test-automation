@@ -1,7 +1,9 @@
-const { page, test, expect, BrowserContext, allure } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
+const DashboardPage = require('../pages/DashboardPage');
+const { allure } = require('allure-playwright');
 
-let loginPage;
+  let loginPage;
   let dashboardPage;
   let userType = "amp";
   let context;
@@ -11,6 +13,7 @@ let loginPage;
     context = await browser.newContext();
     page = await context.newPage();
     loginPage = new LoginPage(page);
+    dashboardPage = new DashboardPage(page);
     await loginPage.navigate("/nuxeo/catalog");
     await loginPage.setCookiesFromFile(userType);
     await loginPage.login(userType);
@@ -27,24 +30,15 @@ let loginPage;
     }
   });
 
-test.describe('Log into Nuxeo page', { tag: ['@login'] }, () => {
-  
-  test('Login with user credentials', async () => {
-
-    await loginPage.login(userType);
-
-
-  });
-
-  test('click collection', async () => {
-
-
-    await page.getByText("COLLECTION").click();
+test.describe('Login scenario', { tag: ['@login'] }, () => {
+  test('Login and navigate to nuxeo catalog page', async () => {
+    
     await page.waitForTimeout(5000);
   });
-
-
+  test('Go to nuxio catalog page', async () => {
+    
+     await loginPage.navigate("/nuxeo/catalog");
+  });
+ 
 
 });
-
-
